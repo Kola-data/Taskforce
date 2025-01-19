@@ -54,7 +54,7 @@ def login():
 
         if user:
             # Check if password matches
-            if user[4] == password AND type != 3:  # Assuming the password is stored in the 5th column
+            if user[4] == password AND user[5] != 3:  # Assuming the password is stored in the 5th column
                 # Store user info in session
                 session['user_id'] = user[0]  # Assuming the first column is user ID
                 session['username'] = user[1]  # Assuming the second column is the username

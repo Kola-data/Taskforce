@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div id="sidebar" class="w-64 bg-blue-600 text-white fixed h-screen md:relative transform transition-transform duration-300 md:translate-x-0 -translate-x-full">
+            <div class="flex items-center justify-between p-4 bg-blue-700">
+                <p class="text-2xl text-white">Wallet App</p>
+                <button id="close-menu" class="text-white md:hidden focus:outline-none">
+                    <i class="fa-solid fa-times"></i> Close
+                </button>
+            </div>
+            <ul class="p-4 space-y-4">
+                <li><a href="{{ url_for('index') }}" class="flex items-center space-x-2"><i class="fa-solid fa-house"></i> <span>Dashboard</span></a></li>
+                <li><a href="{{ url_for('view_users') }}" class="flex items-center space-x-2"><i class="fa-solid fa-users"></i> <span>Users</span></a></li>
+                <li><a href="{{ url_for('accounts') }}" class="flex items-center space-x-2"><i class="fa-solid fa-wallet"></i> <span>Budget</span></a></li>
+                <li><a href="{{ url_for('categories') }}" class="flex items-center space-x-2"><i class="fa-solid fa-folder"></i> <span>Categories</span></a></li>
+                <li><a href="{{ url_for('sub_categories') }}" class="flex items-center space-x-2"><i class="fa-solid fa-folder-tree"></i> <span>Sub Categories</span></a></li>
+                <li><a href="{{ url_for('transactions') }}" class="flex items-center space-x-2"><i class="fa-solid fa-money-check-dollar"></i> <span>Transaction</span></a></li>
+                <li><a href="{{ url_for('payment_methods') }}" class="flex items-center space-x-2"><i class="fa-solid fa-credit-card"></i> <span>Payment Methods</span></a></li>
+                <li><a href="{{ url_for('logout') }}" class="flex items-center space-x-2 pt-3"><i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></a></li>
+            </ul>
+
+        </div>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <!-- Header -->
+<div class="flex items-center justify-between bg-blue-600 text-white p-4">
+    <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <i class="fa-solid fa-bars"></i> Menu
+    </button>
+    <div class="relative ml-auto"> <!-- Push to the right -->
+        <button id="user-menu-toggle" class="focus:outline-none flex items-center">
+            <span>Admin</span> <i class="fa-solid fa-user ml-2"></i>
+        </button>
+        <div id="user-dropdown" class="hidden absolute right-0 bg-white text-black mt-2 shadow-lg py-2 rounded-lg w-48 z-10">
+            <p class="block px-4 py-2 text-gray-700 flex items-center">
+                <i class="fa-solid fa-circle-user mr-2 text-blue-600"></i>
+                Logged in as:
+            </p>
+            <p class="block px-4 py-2 text-sm font-semibold text-blue-600 flex items-center">
+                <i class="fa-solid fa-user-check mr-2 text-green-500"></i>
+                {{ session['username'] }}
+            </p>
+            <hr class="my-2 border-gray-300">
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100 flex items-center">
+                <i class="fa-solid fa-user mr-2"></i> Profile
+            </a>
+            <a href="{{ url_for('logout') }}" class="block px-4 py-2 hover:bg-gray-100 flex items-center">
+                <i class="fa-solid fa-right-from-bracket mr-2"></i> Logout
+            </a>
+        </div>
+    </div>
+</div>
+
+
+            <!-- Content -->
+            <div class="p-4 space-y-6 overflow-y-auto">
+                <!-- content section -->
+
+                {% block content %}
+                {% endblock %}
+
+                <!-- end content section -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sidebar toggle logic
+        const sidebar = document.getElementById('sidebar');
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+
+        // Open sidebar
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+        });
+
+        // Close sidebar
+        closeMenu.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+        });
+
+        // User dropdown toggle
+        const userMenuToggle = document.getElementById('user-menu-toggle');
+        const userDropdown = document.getElementById('user-dropdown');
+
+        userMenuToggle.addEventListener('click', () => {
+            userDropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!userMenuToggle.contains(event.target) && !userDropdown.contains(event.target)) {
+                userDropdown.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

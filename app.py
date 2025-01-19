@@ -19,7 +19,7 @@ from werkzeug.security import generate_password_hash
 
 
 app = Flask(__name__, template_folder='components/')
-app.secret_key = 'sdafafgahshsjksklakakskak'
+app.secret_key = 'my_secret_key'
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -54,7 +54,7 @@ def login():
 
         if user:
             # Check if password matches
-            if bcrypt.check_password_hash(user[4], password):  # Assuming the password is stored in the 5th column
+            if user[4] == password AND type != 3:  # Assuming the password is stored in the 5th column
                 # Store user info in session
                 session['user_id'] = user[0]  # Assuming the first column is user ID
                 session['username'] = user[1]  # Assuming the second column is the username

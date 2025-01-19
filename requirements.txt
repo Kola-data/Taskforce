@@ -5,3 +5,4 @@ Flask-Mail==0.9.1
 reportlab==3.6.6
 werkzeug==2.2.2
 mysqlclient==2.1.1
+flask_mysqldb

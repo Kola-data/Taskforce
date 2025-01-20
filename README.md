@@ -56,21 +56,21 @@ Ensure you have the following installed on your system:
    venv\Scripts\activate
 
 3. Install the required dependencies:
-  ```bash
-  pip install -r requirements.txt
-
-
+      ```bash
+      pip install -r requirements.txt
+  
+  
 4. Open MySQL and create a database:
-  ```bash
-  CREATE DATABASE finance_tracker;
-
+    ```bash
+    CREATE DATABASE finance_tracker;
+  
 5. Import database in :
-
-  /db/finance_tracker.sql or
-
+  
+    /db/finance_tracker.sql or
+  
 6. Run the project :
-
-  flask run  
+  
+    flask run  
 
 
   

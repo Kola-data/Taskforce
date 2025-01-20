@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2025 at 03:00 PM
+-- Generation Time: Jan 20, 2025 at 07:29 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -155,8 +155,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `full_name`, `username`, `email`, `password`, `type`) VALUES
-(3, 'Rutayisire Emmanuel', 'Admin', 'info.admin@gmail.com', 'scrypt:32768:8:1$TidvQsbEURtU7Qai$e67dc85788bf89eb6d4250c42baabd4848c7276b7e46b70ff8d65ce28a05c1067d0fde61ebbd7ff1baebfb6a7d4eda0387b3a0be92c98f9bfdaa9c147f4a3761', 1),
-(4, 'Admin', 'admin1', 'admin@gmail.com', '$2b$12$PHLZF26u96U513G0Kz9x.ein7lKCmilJW9xfZGw5RGPiFGVF6d0Ju', 3);
+(3, 'Rutayisire Emmanuel', 'Admin', 'info.admin@gmail.com', '123', 1),
+(4, 'Admin', 'admin1', 'admin@gmail.com', '123', 3);
 
 --
 -- Indexes for dumped tables

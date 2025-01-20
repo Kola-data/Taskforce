@@ -50,12 +50,11 @@ Ensure you have the following installed on your system:
    venv\Scripts\activate
 
 
-2-1. In this case, the above commands did not work. go with this:
+  2-1. In this case, the above commands did not work. go with this:
 
-    ```bash
-    mkdir venv
-    python -m venv venv  
-    venv\Scripts\activate
+      mkdir venv
+      python -m venv venv  
+      venv\Scripts\activate
 
 3. Install the required dependencies:
       ```bash

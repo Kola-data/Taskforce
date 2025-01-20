@@ -157,7 +157,7 @@ Enter your MySQL root password when prompted.
       http://127.0.0.1:5000
 
 
-11. **Troubleshooting**
+**Troubleshooting**
 
 
 If MySQL isn’t recognized, ensure its binary is added to your PATH.

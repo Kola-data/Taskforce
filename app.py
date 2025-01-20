@@ -53,6 +53,10 @@ def login():
         cursor.close()
 
         if user:
+            # This condition is to check if the user is allowed to log in or if the user account has not been deleted
+            if user[5] == 3:
+                flash('This account was deleted', 'danger')
+                return redirect(url_for('login'))
             # Check if password matches
             if user[4] == password:  # Assuming the password is stored in the 5th column
                 # Store user info in session

@@ -77,6 +77,7 @@ Ensure you have the following installed on your system:
 
 Open your browser and navigate to http://127.0.0.1:5000.
 
+
 **Usage**
 
 After installation, you can:
@@ -98,63 +99,66 @@ This project is licensed under the MIT License.
 
 Ensure the following are installed on your system:
 
+
 Python (Version 3.8 or later)
 MySQL Server
 Git
 pip (Python package manager)
 
-1. Clone the Repository and open a terminal:
 
+1. Clone the Repository and open a terminal:
+  ```bash
   git clone https://github.com/Kola-data/Taskforce.git
   cd Taskforce
   
 2. Create a Virtual Environment and Activate:
-
+  ```bash
   python3 -m venv venv
   source venv/bin/activate
   
 3. Install Project Dependencies
-
+  ```bash
   pip install -r requirements.txt
   
 4. Install MySQL Server macOS Use Homebrew to install MySQL and Start the MySQL service:
-
+  ```bash
   brew install mysql
   brew services start mysql
   
 5. Linux Installation. Use your package manager to install MySQL:
-
+  ```bash
   sudo apt update
   sudo apt install mysql-server
 
-6. Secure the MySQL installation (optional but recommended):
-
+6. Secure the MySQL installation (optional but recommended) Start the MySQL service:
+  ```bash
   sudo mysql_secure_installation
-  Start the MySQL service:
 
   sudo systemctl start mysql
   
 7. Set Up the Database and Log into the MySQL server:
-
+  ```bash
   mysql -u root -p
-  Enter your MySQL root password when prompted.
+
+Enter your MySQL root password when prompted.
 
 8. Create the database:
-
+  ```bash
   CREATE DATABASE taskforce;
   Exit MySQL:
 
   
 9. Start the Application (Start the Flask development server):
-
-
+  ```bash
   flask run
+
 10. Open your browser and navigate to:
-
-
+  ```bash
   http://127.0.0.1:5000
-  
+
+
 11. **Troubleshooting**
+
 
 If MySQL isn’t recognized, ensure its binary is added to your PATH.
 For permission issues, try running commands with sudo if necessary.

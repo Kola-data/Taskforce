@@ -74,7 +74,22 @@ Ensure you have the following installed on your system:
       flask run  
 
 
-  
+
+Open your browser and navigate to http://127.0.0.1:5000.
+
+**Usage**
+
+After installation, you can:
+
+Create payment methods (e.g., bank account, mobile money).
+Add transactions and categorize them.
+Generate reports for any desired time period.
+Visualize your expenses and income in graphical form.
+Contributing
+Contributions are welcome! Feel free to fork the repository and submit a pull request with your improvements or bug fixes.
+
+License
+This project is licensed under the MIT License.
    
 
 

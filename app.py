@@ -153,7 +153,7 @@ def add_user():
         fullname = request.form['fullname']
         username = request.form['username']
         email = request.form['email']
-        password = generate_password_hash(request.form['password'])  # Secure password hashing
+        password = request.form['password']  
 
         cursor = mysql.connection.cursor()
         try:
@@ -195,8 +195,8 @@ def edit_user(id):
         fullname = request.form['fullname']
         username = request.form['username']
         email = request.form['email']
-        notify = request.form['notify']  # Assuming this is a field like "type" or role
-        password = generate_password_hash(request.form['password'])  # Secure password hashing
+        notify = request.form['notify']  # this difines if your account get notification or not
+        password = request.form['password']
 
         cursor = mysql.connection.cursor()
         try:

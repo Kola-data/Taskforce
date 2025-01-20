@@ -49,7 +49,7 @@ Ensure you have the following installed on your system:
    python -m venv venv  
    venv\Scripts\activate
 
-   in this case, the above commands do not work. go with this
+2.1 In this case, the above commands did not work. go with this
 
    mkdir venv
    python -m venv venv  
@@ -69,7 +69,7 @@ Ensure you have the following installed on your system:
       /db/finance_tracker.sql or
   
 6. Run the project :
-  
+      ```bash
       flask run  
 
 

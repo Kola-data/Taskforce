@@ -61,16 +61,16 @@ Ensure you have the following installed on your system:
   
   
 4. Open MySQL and create a database:
-    ```bash
-    CREATE DATABASE finance_tracker;
+      ```bash
+      CREATE DATABASE finance_tracker;
   
 5. Import database in :
   
-    /db/finance_tracker.sql or
+      /db/finance_tracker.sql or
   
 6. Run the project :
   
-    flask run  
+      flask run  
 
 
   

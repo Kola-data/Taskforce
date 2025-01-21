@@ -32,7 +32,7 @@ app.config['MAIL_USERNAME'] = 'api'
 app.config['MAIL_PASSWORD'] = 'ed8e6975176dd1ea3a2267d1daac9c13'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_DEFAULT_SENDER'] = 'info@demomailtrap.com'
+app.config['MAIL_DEFAULT_SENDER'] = 'Alert-info@demomailtrap.com'
 mail = Mail(app)
 mysql = MySQL(app)
 

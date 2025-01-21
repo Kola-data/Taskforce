@@ -14,7 +14,7 @@
 
 A simple and intuitive wallet web application designed to help users manage their finances effectively. With Taskforce, users can track transactions, generate reports, set budgets, and visualize spending in an organized manner and out.
 
-**Note**: for the users when creating user below last field which is about notification once **You** chose yes that user can everything include user CRUD operation, when chose not user can do everything but he can **Not** see and make any operation on users include his/her profile
+**Note**: for the users when creating user below last field which is about notification once you chose **Yes** that user can everything include user CRUD operation, when chose not user can do everything but he can **Not** see and make any operation on users include his/her profile
 
 ---
 

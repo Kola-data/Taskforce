@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% if session['type'] == 1 %}
     <!-- Form Section -->
 <div class="bg-white p-6 rounded-lg shadow-md">
     <a href="{{ url_for('view_users') }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Back to users</a>
@@ -40,4 +40,5 @@
     </form>
     {% endif %}
 </div>
+{% endif %}
 {% endblock content %}

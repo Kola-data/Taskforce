@@ -28,7 +28,7 @@ app.config['MYSQL_DB'] = 'finance_tracker'
 
 mysql = MySQL(app)
 
-bcrypt = Bcrypt(app)
+
 
 
 def login_required(f):
@@ -460,33 +460,6 @@ def transactions():
 
 
 
-def send_email_notification(to_email, subject, message):
-    import smtplib
-    from email.mime.text import MIMEText
-
-    try:
-        # Email server configuration
-        smtp_server = "smtp.gmail.com"
-        smtp_port = 587
-        sender_email = "info.kwolalabs@gmail.com"
-        sender_password = f"{random.Random(9999999)}"  # Use the generated App Password
-
-        # Create the email message
-        msg = MIMEText(message)
-        msg['Subject'] = subject
-        msg['From'] = sender_email
-        msg['To'] = to_email
-
-        # Send the email
-        with smtplib.SMTP(smtp_server, smtp_port) as server:
-            server.starttls()  # Start TLS encryption
-            server.login(sender_email, sender_password)  # Login to the email server
-            server.send_message(msg)  # Send the email
-
-        print(f"Notification email sent to {to_email}")
-    except Exception as e:
-        print(f"Error sending email: {e}")
-
 @app.route('/transactions/add', methods=['GET', 'POST'])
 @login_required
 def add_transactions():
@@ -524,15 +497,23 @@ def add_transactions():
                 # Send email notifications
                 for email in emails:
                     to_email = email[0]
-                    subject = "Low Account Balance Alert"
-                    message = (
-                        f"Dear User,\n\n"
-                        f"A transaction could not be processed due to insufficient balance in account ID: {account_id}.\n"
-                        f"Transaction Amount: {amount:,.2f}\n"
-                        f"Current Balance: {account_balance:,.2f}\n\n"
-                        f"Please take the necessary action."
+
+                    msg = Message(
+                        subject="Low Account Balance Alert",
+                        recipients=[to_email],  # Replace with the recipient's email
+                        body=f"""
+                        Dear User,\n\n"
+                        A transaction could not be processed due to insufficient balance in account ID: {account_id}.\n"
+                        Transaction Amount: {amount:,.2f}\n"
+                        Current Balance: {account_balance:,.2f}\n\n"
+                        Please take the necessary action.
+                        """
                     )
-                    send_email_notification(to_email, subject, message)
+                    try:
+                        mail.send(msg)
+                        print("Email sent successfully!")
+                    except Exception as e:
+                        print(f"Failed to send email: {e}")
 
                 flash('Insufficient balance in the selected account! Notifications sent.', 'danger')
                 return redirect('/transactions')
